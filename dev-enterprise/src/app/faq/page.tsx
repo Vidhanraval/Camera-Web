@@ -15,10 +15,6 @@ const faqs = [
     a: "We are an authorized dealer for Dell, HP, Lenovo, ASUS, Acer, Canon, Brother, Epson, Samsung, LG, Zebronics, Finger, and more. All products come with manufacturer warranty.",
   },
   {
-    q: "Do you provide GST invoices?",
-    a: "Yes! We provide GST-compliant tax invoices for all purchases. Businesses can claim input tax credit using our invoices.",
-  },
-  {
     q: "What are your shipping charges?",
     a: "We offer free shipping on all orders above ₹5,000. For orders below ₹5,000, a nominal shipping fee of ₹299 applies. We deliver across India.",
   },
@@ -84,7 +80,7 @@ export default function FAQPage() {
           <div className="text-center mt-8">
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               Still have questions?{" "}
-              <a href="/contact" className="text-blue-600 dark:text-blue-400 font-semibold hover:underline">
+              <a href="/contact" className="text-amber-600 dark:text-amber-400 font-semibold hover:underline">
                 Contact our support team
               </a>
             </p>

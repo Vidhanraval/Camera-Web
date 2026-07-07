@@ -64,11 +64,11 @@ export function CheckoutContent() {
             return (
               <div key={s} className="flex items-center gap-2">
                 <div className={`h-8 w-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                  isActive || isDone ? "bg-blue-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-500"
+                  isActive || isDone ? "bg-amber-600 text-white" : "bg-gray-200 dark:bg-gray-700 text-gray-500"
                 }`}>
                   {isDone ? <Check className="h-4 w-4" /> : i + 1}
                 </div>
-                <span className={`text-sm font-medium ${isActive ? "text-blue-600" : "text-gray-500"}`}>
+                <span className={`text-sm font-medium ${isActive ? "text-amber-600" : "text-gray-500"}`}>
                   {s}
                 </span>
                 {i < 2 && <div className="w-8 h-px bg-gray-300 dark:bg-gray-600" />}
@@ -83,7 +83,7 @@ export function CheckoutContent() {
             {step === "shipping" && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200/60 dark:border-gray-800/60 p-6">
                 <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
-                  <MapPin className="h-5 w-5 text-blue-600" /> Shipping Address
+                  <MapPin className="h-5 w-5 text-amber-600" /> Shipping Address
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="sm:col-span-2">
@@ -144,13 +144,13 @@ export function CheckoutContent() {
                       key={method.id}
                       className={`flex items-center gap-4 p-4 rounded-xl border-2 cursor-pointer transition-all duration-200 ${
                         paymentMethod === method.id
-                          ? "border-blue-600 bg-blue-50 dark:bg-blue-950/30"
+                          ? "border-amber-600 bg-amber-50 dark:bg-amber-950/30"
                           : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
                       }`}
                     >
                       <RadioGroupItem value={method.id} />
                       <div className="h-10 w-10 rounded-xl bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                        <method.icon className="h-5 w-5 text-blue-600" />
+                        <method.icon className="h-5 w-5 text-amber-600" />
                       </div>
                       <div>
                         <p className="font-semibold text-sm">{method.name}</p>
@@ -215,7 +215,7 @@ export function CheckoutContent() {
                   </div>
                 ))}
                 {items.length > 3 && (
-                  <p className="text-xs text-blue-600">+{items.length - 3} more items</p>
+                  <p className="text-xs text-amber-600">+{items.length - 3} more items</p>
                 )}
               </div>
               <Separator />
@@ -223,10 +223,6 @@ export function CheckoutContent() {
                 <div className="flex justify-between">
                   <span className="text-gray-500">Subtotal</span>
                   <span>{formatPrice(subtotal)}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-gray-500">GST</span>
-                  <span>{formatPrice(gst)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-500">Shipping</span>
@@ -237,10 +233,10 @@ export function CheckoutContent() {
                 <Separator />
                 <div className="flex justify-between text-lg font-bold">
                   <span>Total</span>
-                  <span className="text-blue-700 dark:text-blue-400">{formatPrice(total + shipping)}</span>
+                  <span className="text-amber-700 dark:text-amber-400">{formatPrice(total + shipping)}</span>
                 </div>
               </div>
-              <div className="mt-4 p-3 rounded-xl bg-blue-50 dark:bg-blue-950/30 flex items-center gap-2 text-xs text-blue-700 dark:text-blue-300">
+              <div className="mt-4 p-3 rounded-xl bg-amber-50 dark:bg-amber-950/30 flex items-center gap-2 text-xs text-amber-700 dark:text-amber-300">
                 <Truck className="h-4 w-4 shrink-0" />
                 {shipping === 0 ? "Free delivery on this order!" : `Add ${formatPrice(5000 - subtotal)} more for free shipping`}
               </div>

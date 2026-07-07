@@ -46,14 +46,14 @@ export default function BrandsPage() {
             const detail = brandDetails[brand.slug] || { description: "Trusted technology brand available at Dev Enterprise.", categories: [] }
             return (
               <Link key={brand.slug} href={`/brands/${brand.slug}`}>
-                <Card className="group p-6 h-full cursor-pointer hover:shadow-2xl hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300">
+                <Card className="group p-6 h-full cursor-pointer hover:shadow-2xl hover:border-amber-200 dark:hover:border-amber-800 transition-all duration-300">
                   <div className="flex items-start gap-4">
-                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center text-2xl font-bold text-gray-600 dark:text-gray-400 group-hover:from-blue-100 group-hover:to-blue-200 dark:group-hover:from-blue-900/40 dark:group-hover:to-blue-800/40 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-all duration-300 shrink-0">
+                    <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 flex items-center justify-center text-2xl font-bold text-gray-600 dark:text-gray-400 group-hover:from-amber-100 group-hover:to-amber-200 dark:group-hover:from-amber-900/40 dark:group-hover:to-amber-800/40 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-all duration-300 shrink-0">
                       {brand.name[0]}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="text-lg font-bold group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                        <h3 className="text-lg font-bold group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
                           {brand.name}
                         </h3>
                         <ShieldCheck className="h-4 w-4 text-green-500" />
@@ -64,7 +64,7 @@ export default function BrandsPage() {
                       {detail.categories.length > 0 && (
                         <div className="flex flex-wrap gap-1.5">
                           {detail.categories.map((cat) => (
-                            <span key={cat} className="text-[10px] px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 font-medium">
+                            <span key={cat} className="text-[10px] px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 font-medium">
                               {cat}
                             </span>
                           ))}
@@ -79,12 +79,12 @@ export default function BrandsPage() {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center">
+        <div className="mt-16 p-8 rounded-2xl bg-gradient-to-r from-amber-600 to-orange-600 text-white text-center">
           <Star className="h-8 w-8 mx-auto mb-3 opacity-80" />
           <h3 className="text-xl font-bold mb-2">Looking for a specific brand or model?</h3>
-          <p className="text-blue-100 mb-4">We can source any technology product from any major brand at competitive prices.</p>
+          <p className="text-amber-100 mb-4">We can source any technology product from any major brand at competitive prices.</p>
           <Link href="/contact">
-            <Button className="rounded-xl bg-white text-blue-700 hover:bg-blue-50">
+            <Button className="rounded-xl bg-white text-amber-700 hover:bg-amber-50">
               Contact Us <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

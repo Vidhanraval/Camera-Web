@@ -234,7 +234,7 @@ function FilterSection({
     <div>
       <button
         onClick={() => onToggle(section)}
-        className="flex items-center justify-between w-full text-sm font-semibold mb-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+        className="flex items-center justify-between w-full text-sm font-semibold mb-2 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
       >
         {title}
         <ChevronDown

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Trash2, Minus, Plus, ShoppingBag, ArrowLeft, ArrowRight, Shield, Truck, Tag } from "lucide-react"
+import { Trash2, Minus, Plus, ShoppingBag, ArrowLeft, ArrowRight, Shield, Truck } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
@@ -74,13 +74,13 @@ export function CartContent() {
 
                     {/* Info */}
                     <div className="flex-1 min-w-0">
-                      <Link href={`/product/${item.product.slug}`} className="font-semibold text-sm hover:text-blue-600 dark:hover:text-blue-400 transition-colors line-clamp-2">
+                      <Link href={`/product/${item.product.slug}`} className="font-semibold text-sm hover:text-amber-600 dark:hover:text-amber-400 transition-colors line-clamp-2">
                         {item.product.name}
                       </Link>
                       <p className="text-xs text-gray-500 mt-1">SKU: {item.product.sku}</p>
                       <div className="flex items-center justify-between mt-3">
                         <div>
-                          <span className="font-bold text-blue-700 dark:text-blue-400">
+                          <span className="font-bold text-amber-700 dark:text-amber-400">
                             {formatPrice(itemPrice)}
                           </span>
                           <span className="text-xs text-gray-400 ml-2">
@@ -148,10 +148,6 @@ export function CartContent() {
                     <span className="font-semibold">{formatPrice(subtotal)}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-500">GST</span>
-                    <span className="font-semibold">{formatPrice(gst)}</span>
-                  </div>
-                  <div className="flex justify-between">
                     <span className="text-gray-500">Shipping</span>
                     <span className={shipping === 0 ? "text-green-600 font-semibold" : "font-semibold"}>
                       {shipping === 0 ? "FREE" : formatPrice(shipping)}
@@ -160,7 +156,7 @@ export function CartContent() {
                   <Separator />
                   <div className="flex justify-between text-lg font-bold">
                     <span>Total</span>
-                    <span className="text-blue-700 dark:text-blue-400">{formatPrice(total + shipping)}</span>
+                    <span className="text-amber-700 dark:text-amber-400">{formatPrice(total + shipping)}</span>
                   </div>
                 </div>
 
@@ -184,10 +180,9 @@ export function CartContent() {
                 {[
                   { icon: Truck, text: "Free shipping on orders above ₹5,000" },
                   { icon: Shield, text: "100% genuine products with warranty" },
-                  { icon: Tag, text: "GST invoice with every purchase" },
                 ].map((item) => (
                   <div key={item.text} className="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400">
-                    <item.icon className="h-4 w-4 text-blue-600 shrink-0" />
+                    <item.icon className="h-4 w-4 text-amber-600 shrink-0" />
                     {item.text}
                   </div>
                 ))}

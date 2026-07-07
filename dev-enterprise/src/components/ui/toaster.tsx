@@ -17,7 +17,7 @@ export function Toaster() {
           description:
             "group-[.toast]:text-gray-500 dark:group-[.toast]:text-gray-400",
           actionButton:
-            "group-[.toast]:bg-blue-600 group-[.toast]:text-white group-[.toast]:rounded-lg",
+            "group-[.toast]:bg-amber-600 group-[.toast]:text-white group-[.toast]:rounded-lg",
           cancelButton:
             "group-[.toast]:bg-gray-100 dark:group-[.toast]:bg-gray-800 group-[.toast]:text-gray-700 dark:group-[.toast]:text-gray-300 group-[.toast]:rounded-lg",
         },

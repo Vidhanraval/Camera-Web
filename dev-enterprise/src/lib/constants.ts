@@ -9,7 +9,6 @@ export const SITE_CONFIG = {
   email: "info@deventerprise.com",
   address:
     "Shop No. 12, Tech Plaza, Main Road, City Center, Maharashtra - 400001",
-  gstin: "27AXXXXX1234X1Z",
   logo: "/images/logo.svg",
   ogImage: "/images/og-image.jpg",
 }

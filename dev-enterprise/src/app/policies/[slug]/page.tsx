@@ -55,7 +55,7 @@ const content: Record<string, { title: string; sections: { heading: string; body
     sections: [
       { heading: "Agreement", body: "By using our website and placing an order, you agree to these terms and conditions. Please read them carefully before making a purchase." },
       { heading: "Product Information", body: "We strive to provide accurate product descriptions, images, and specifications. However, actual products may vary slightly from images shown. Prices are subject to change without prior notice." },
-      { heading: "Payment Terms", body: "All prices are in Indian Rupees (INR) and are inclusive of GST unless stated otherwise. Payment must be made in full before order dispatch, except for Cash on Delivery orders." },
+      { heading: "Payment Terms", body: "All prices are in Indian Rupees (INR). Payment must be made in full before order dispatch, except for Cash on Delivery orders." },
       { heading: "Warranty", body: "All products carry the manufacturer's standard warranty unless otherwise specified. Warranty claims are handled as per the manufacturer's terms. We facilitate warranty service but are not directly liable for manufacturer warranties." },
     ],
   },

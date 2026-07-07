@@ -83,13 +83,13 @@ export default function BlogPage() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {posts.map((post) => (
             <Link key={post.slug} href={`/blog/${post.slug}`}>
-              <Card className="group h-full overflow-hidden hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300">
-                <div className="aspect-video bg-gradient-to-br from-blue-100 to-indigo-100 dark:from-blue-900/20 dark:to-indigo-900/20 flex items-center justify-center">
-                  <span className="text-3xl font-bold text-blue-300 dark:text-blue-700">{post.category[0]}</span>
+              <Card className="group h-full overflow-hidden hover:shadow-xl hover:border-amber-200 dark:hover:border-amber-800 transition-all duration-300">
+                <div className="aspect-video bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/20 dark:to-orange-900/20 flex items-center justify-center">
+                  <span className="text-3xl font-bold text-amber-300 dark:text-amber-700">{post.category[0]}</span>
                 </div>
                 <div className="p-5">
                   <Badge variant="secondary" className="mb-3">{post.category}</Badge>
-                  <h3 className="font-bold mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2">
+                  <h3 className="font-bold mb-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-3 line-clamp-2">{post.excerpt}</p>

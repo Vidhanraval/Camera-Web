@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
@@ -10,158 +10,170 @@ const testimonials = [
   {
     id: 1,
     name: "Rajesh Sharma",
-    role: "IT Manager, Mumbai Corp",
+    role: "IT Manager, Mumbai",
     avatar: "RS",
     rating: 5,
     content:
-      "Dev Enterprise has been our go-to IT supplier for over 3 years. Their pricing is competitive, delivery is always on time, and their after-sales support is exceptional. We recently purchased 50 Dell workstations and the entire process was seamless.",
+      "Best IT supplier we've worked with. Competitive pricing, on-time delivery, and exceptional after-sales support. Recently purchased 50 Dell workstations — the entire process was seamless.",
+    color: "from-amber-500 to-orange-500",
   },
   {
     id: 2,
     name: "Priya Patel",
-    role: "Small Business Owner",
+    role: "Business Owner, Pune",
     avatar: "PP",
     rating: 5,
     content:
-      "I run a small accounting firm and needed CCTV cameras and networking setup. Dev Enterprise's team handled everything — from recommending the right products to professional installation. Highly recommended for small businesses!",
+      "Needed CCTV cameras and networking for my office. They handled everything from recommendations to professional installation. Highly recommended for small businesses!",
+    color: "from-emerald-500 to-teal-500",
   },
   {
     id: 3,
     name: "Amit Verma",
-    role: "College Student",
+    role: "Student, Delhi",
     avatar: "AV",
-    rating: 4,
-    content:
-      "Bought an ASUS gaming laptop for my college projects and gaming. Got the best price compared to Amazon and Flipkart. The GST invoice was helpful for my dad's business too. Will definitely buy again.",
-  },
-  {
-    id: 4,
-    name: "Sneha Gupta",
-    role: "School Administrator",
-    avatar: "SG",
     rating: 5,
     content:
-      "We ordered 20 printers for our school's computer lab. Dev Enterprise helped us choose the right models, arranged bulk pricing, and provided installation support. Their service is outstanding for educational institutions.",
-  },
-  {
-    id: 5,
-    name: "Vikram Desai",
-    role: "Retail Store Owner",
-    avatar: "VD",
-    rating: 5,
-    content:
-      "As a fellow retailer, I value their wholesale pricing. I regularly purchase computer accessories and networking equipment from them. Consistent quality, genuine products, and great margins for my business.",
+      "Got the best price on my ASUS laptop compared to Amazon and Flipkart. Great service and genuine product. Will definitely buy again and recommend to friends.",
+    color: "from-violet-500 to-purple-500",
   },
 ]
 
 export function Testimonials() {
   const [current, setCurrent] = useState(0)
+  const [autoplay, setAutoplay] = useState(true)
 
-  const next = () => setCurrent((prev) => (prev + 1) % testimonials.length)
-  const prev = () =>
+  useEffect(() => {
+    if (!autoplay) return
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % testimonials.length)
+    }, 5000)
+    return () => clearInterval(timer)
+  }, [autoplay])
+
+  const next = () => {
+    setAutoplay(false)
+    setCurrent((prev) => (prev + 1) % testimonials.length)
+  }
+  const prev = () => {
+    setAutoplay(false)
     setCurrent((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
 
   return (
-    <section className="py-16 lg:py-24 bg-gradient-to-b from-blue-50/50 to-white dark:from-blue-950/20 dark:to-gray-950">
+    <section className="py-20 lg:py-28 bg-gray-50/50 dark:bg-gray-950/50 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-2"
-          >
-            Testimonials
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-3xl lg:text-4xl font-extrabold tracking-tight mb-4"
-          >
-            What Our Customers Say
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-gray-500 dark:text-gray-400"
-          >
-            Trusted by businesses, students, and professionals across India
-          </motion.p>
-        </div>
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-14"
+        >
+          <h2 className="text-3xl lg:text-5xl font-black tracking-tight mb-3">
+            Loved by{" "}
+            <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Customers</span>
+          </h2>
+          <p className="text-gray-500 dark:text-gray-400 text-lg">
+            Real feedback from real people across India
+          </p>
+        </motion.div>
 
-        <div className="max-w-3xl mx-auto relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={current}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.3 }}
-              className="bg-white dark:bg-gray-900 rounded-3xl p-8 lg:p-12 shadow-xl shadow-blue-500/5 border border-gray-200/60 dark:border-gray-800/60 text-center"
-            >
-              <Quote className="h-10 w-10 text-blue-200 dark:text-blue-800 mx-auto mb-4" />
-              <p className="text-gray-700 dark:text-gray-300 text-base lg:text-lg leading-relaxed mb-6">
-                &ldquo;{testimonials[current].content}&rdquo;
-              </p>
-              <div className="flex items-center justify-center gap-1 mb-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={cn(
-                      "h-5 w-5",
-                      i < testimonials[current].rating
-                        ? "fill-yellow-400 text-yellow-400"
-                        : "fill-gray-200 text-gray-200 dark:fill-gray-700 dark:text-gray-700"
-                    )}
-                  />
-                ))}
-              </div>
-              <Avatar className="h-14 w-14 mx-auto mb-2">
-                <AvatarFallback className="bg-gradient-to-br from-blue-600 to-indigo-600 text-white text-lg font-bold">
-                  {testimonials[current].avatar}
-                </AvatarFallback>
-              </Avatar>
-              <p className="font-semibold text-gray-900 dark:text-gray-100">
-                {testimonials[current].name}
-              </p>
-              <p className="text-sm text-gray-500 dark:text-gray-400">
-                {testimonials[current].role}
-              </p>
-            </motion.div>
-          </AnimatePresence>
+        {/* Testimonial Cards */}
+        <div className="max-w-5xl mx-auto relative">
+          <div className="grid md:grid-cols-3 gap-6">
+            <AnimatePresence mode="wait">
+              {testimonials.map((t, i) => (
+                <motion.div
+                  key={t.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    scale: i === current ? 1.03 : 0.97,
+                  }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                  onClick={() => { setCurrent(i); setAutoplay(false) }}
+                  className={cn(
+                    "relative cursor-pointer rounded-3xl p-8 transition-all duration-500",
+                    i === current
+                      ? "bg-white dark:bg-gray-900 shadow-2xl border-2 border-amber-200 dark:border-amber-800 scale-105 z-10"
+                      : "bg-white/60 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700"
+                  )}
+                >
+                  {/* Gradient top bar for active */}
+                  {i === current && (
+                    <div className={`absolute top-0 left-4 right-4 h-1 rounded-full bg-gradient-to-r ${t.color}`} />
+                  )}
+
+                  <Quote className={cn(
+                    "h-8 w-8 mb-4",
+                    i === current ? "text-amber-300 dark:text-amber-600" : "text-gray-200 dark:text-gray-700"
+                  )} />
+
+                  <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed mb-6">
+                    &ldquo;{t.content}&rdquo;
+                  </p>
+
+                  <div className="flex items-center gap-0.5 mb-4">
+                    {[...Array(5)].map((_, s) => (
+                      <Star
+                        key={s}
+                        className={cn(
+                          "h-4 w-4",
+                          s < t.rating
+                            ? "fill-amber-400 text-amber-400"
+                            : "fill-gray-200 text-gray-200 dark:fill-gray-700 dark:text-gray-700"
+                        )}
+                      />
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <Avatar className="h-12 w-12 border-2 border-white dark:border-gray-800 shadow-md">
+                      <AvatarFallback className={`bg-gradient-to-br ${t.color} text-white font-bold`}>
+                        {t.avatar}
+                      </AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <p className="font-bold text-sm">{t.name}</p>
+                      <p className="text-xs text-gray-500">{t.role}</p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </div>
 
           {/* Controls */}
-          <button
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 lg:-translate-x-6 h-10 w-10 rounded-full bg-white dark:bg-gray-800 shadow-lg shadow-black/10 flex items-center justify-center hover:scale-110 transition-transform"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 lg:translate-x-6 h-10 w-10 rounded-full bg-white dark:bg-gray-800 shadow-lg shadow-black/10 flex items-center justify-center hover:scale-110 transition-transform"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-
-          {/* Dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {testimonials.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={cn(
-                  "h-2 rounded-full transition-all duration-300",
-                  i === current
-                    ? "w-6 bg-blue-600"
-                    : "w-2 bg-gray-300 dark:bg-gray-600"
-                )}
-              />
-            ))}
+          <div className="flex items-center justify-center gap-4 mt-10">
+            <button
+              onClick={prev}
+              className="h-12 w-12 rounded-2xl border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30 transition-all duration-300"
+            >
+              <ChevronLeft className="h-5 w-5" />
+            </button>
+            <div className="flex gap-2">
+              {testimonials.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setCurrent(i); setAutoplay(false) }}
+                  className={cn(
+                    "h-2.5 rounded-full transition-all duration-500",
+                    i === current
+                      ? "w-10 bg-gradient-to-r from-amber-500 to-orange-500"
+                      : "w-2.5 bg-gray-300 dark:bg-gray-600"
+                  )}
+                />
+              ))}
+            </div>
+            <button
+              onClick={next}
+              className="h-12 w-12 rounded-2xl border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/30 transition-all duration-300"
+            >
+              <ChevronRight className="h-5 w-5" />
+            </button>
           </div>
         </div>
       </div>

@@ -20,7 +20,7 @@ const orders = [
 
 const statusColors: Record<string, string> = {
   Delivered: "bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300",
-  Shipped: "bg-blue-100 text-blue-700 dark:bg-blue-900/50 dark:text-blue-300",
+  Shipped: "bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300",
   Processing: "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-300",
   Pending: "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300",
   Cancelled: "bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300",
@@ -58,7 +58,7 @@ export default function OrdersPage() {
                 className="w-full p-5 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-900/50 transition-colors text-left"
               >
                 <div className="flex items-center gap-4">
-                  <Package className="h-5 w-5 text-blue-600" />
+                  <Package className="h-5 w-5 text-amber-600" />
                   <div>
                     <p className="font-semibold text-sm">{order.id}</p>
                     <p className="text-xs text-gray-500">{order.date} • {order.items.length} item{order.items.length > 1 ? 's' : ''}</p>

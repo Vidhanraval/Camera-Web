@@ -35,19 +35,19 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950 flex items-center justify-center py-12 px-4">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="w-full max-w-md"
       >
-        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl shadow-blue-500/10 border border-gray-200/60 dark:border-gray-800/60 p-8">
+        <div className="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl shadow-amber-500/10 border border-gray-200/60 dark:border-gray-800/60 p-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 justify-center mb-8">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center">
               <Sparkles className="h-5 w-5 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-amber-700 to-orange-700 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
               {SITE_CONFIG.name}
             </span>
           </Link>
@@ -76,7 +76,7 @@ export default function LoginPage() {
             <div>
               <div className="flex items-center justify-between">
                 <Label htmlFor="password">Password</Label>
-                <Link href="/auth/forgot-password" className="text-xs text-blue-600 dark:text-blue-400 hover:underline">
+                <Link href="/auth/forgot-password" className="text-xs text-amber-600 dark:text-amber-400 hover:underline">
                   Forgot password?
                 </Link>
               </div>
@@ -131,7 +131,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
             Don&apos;t have an account?{" "}
-            <Link href="/auth/signup" className="font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+            <Link href="/auth/signup" className="font-semibold text-amber-600 dark:text-amber-400 hover:underline">
               Create Account
             </Link>
           </p>

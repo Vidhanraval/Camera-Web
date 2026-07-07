@@ -74,7 +74,7 @@ export function ProductCard({ product }: ProductCardProps) {
   if (discount >= 10) badges.push(`${discount}% OFF`)
 
   return (
-    <Card className="group h-full overflow-hidden hover:shadow-2xl hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300">
+    <Card className="group h-full overflow-hidden hover:shadow-2xl hover:border-amber-200 dark:hover:border-amber-800 transition-all duration-300">
       {/* Image */}
       <div
         className="cursor-pointer"
@@ -188,7 +188,7 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.brand?.name} • {product.category.name}
         </p>
         <Link href={`/product/${product.slug}`}>
-          <h3 className="font-semibold text-sm mb-2 line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+          <h3 className="font-semibold text-sm mb-2 line-clamp-2 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
             {product.name}
           </h3>
         </Link>
@@ -213,7 +213,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Price */}
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-lg font-bold text-blue-700 dark:text-blue-400">
+          <span className="text-lg font-bold text-amber-700 dark:text-amber-400">
             {formatPrice(salePrice || price)}
           </span>
           {salePrice && (
@@ -223,7 +223,7 @@ export function ProductCard({ product }: ProductCardProps) {
             </>
           )}
         </div>
-        <p className="text-[10px] text-gray-400 mt-1">+GST @ {Number(product.gstRate)}%</p>
+
 
         {/* Stock Status */}
         <p className={cn(

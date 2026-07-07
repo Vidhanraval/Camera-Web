@@ -73,10 +73,10 @@ export default function AddressesPage() {
             const Icon = typeIcons[addr.type] || Home
             return (
               <motion.div key={addr.id} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}>
-                <Card className={`p-5 relative ${addr.isDefault ? "border-blue-300 dark:border-blue-700 ring-2 ring-blue-500/20" : ""}`}>
+                <Card className={`p-5 relative ${addr.isDefault ? "border-amber-300 dark:border-amber-700 ring-2 ring-amber-500/20" : ""}`}>
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex items-center gap-2">
-                      <Icon className="h-4 w-4 text-blue-600" />
+                      <Icon className="h-4 w-4 text-amber-600" />
                       <span className="text-sm font-semibold">{addr.type}</span>
                       {addr.isDefault && <Badge variant="premium" className="text-[10px]">Default</Badge>}
                     </div>

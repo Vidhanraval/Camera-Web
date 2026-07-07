@@ -62,7 +62,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
         <div className="max-w-4xl mx-auto">
           {/* Brand Header */}
           <div className="text-center mb-12">
-            <div className="h-24 w-24 mx-auto rounded-3xl bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/40 dark:to-indigo-900/40 flex items-center justify-center text-4xl font-bold text-blue-600 dark:text-blue-400 mb-6">
+            <div className="h-24 w-24 mx-auto rounded-3xl bg-gradient-to-br from-amber-100 to-indigo-200 dark:from-amber-900/40 dark:to-orange-900/40 flex items-center justify-center text-4xl font-bold text-amber-600 dark:text-amber-400 mb-6">
               {brand.name[0]}
             </div>
             <div className="flex items-center justify-center gap-3 mb-3">
@@ -88,7 +88,7 @@ export default async function BrandPage({ params }: BrandPageProps) {
               <div className="flex flex-wrap justify-center gap-3">
                 {detail.categories.map((cat) => (
                   <Link key={cat} href={`/shop?category=${cat.toLowerCase().replace(/ /g, "-")}&brand=${slug}`}>
-                    <Card className="px-5 py-3 hover:shadow-lg hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300 cursor-pointer text-sm font-semibold">
+                    <Card className="px-5 py-3 hover:shadow-lg hover:border-amber-200 dark:hover:border-amber-800 transition-all duration-300 cursor-pointer text-sm font-semibold">
                       {cat}
                     </Card>
                   </Link>

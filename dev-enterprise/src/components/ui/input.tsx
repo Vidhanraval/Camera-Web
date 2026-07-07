@@ -22,7 +22,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           type={isPassword && showPassword ? "text" : type}
           className={cn(
-            "flex h-11 w-full rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2 text-sm placeholder:text-gray-400 dark:placeholder:text-gray-500 focus-visible:outline-none focus-visible:border-blue-500 dark:focus-visible:border-blue-400 focus-visible:ring-4 focus-visible:ring-blue-500/10 dark:focus-visible:ring-blue-400/10 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200",
+            "flex h-11 w-full rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-2 text-sm placeholder:text-gray-400 dark:placeholder:text-gray-500 focus-visible:outline-none focus-visible:border-amber-500 dark:focus-visible:border-amber-400 focus-visible:ring-4 focus-visible:ring-amber-500/10 dark:focus-visible:ring-amber-400/10 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200",
             icon && "pl-10",
             isPassword && "pr-10",
             error &&

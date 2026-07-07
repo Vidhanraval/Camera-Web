@@ -43,7 +43,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
           {stats.map((stat) => (
             <Card key={stat.label} className="p-6 text-center">
-              <p className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent mb-1">{stat.value}</p>
+              <p className="text-3xl font-extrabold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent mb-1">{stat.value}</p>
               <p className="text-sm text-gray-500">{stat.label}</p>
             </Card>
           ))}
@@ -70,9 +70,9 @@ export default function AboutPage() {
           <h2 className="text-2xl font-extrabold text-center mb-10">Why Choose Us</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v) => (
-              <Card key={v.title} className="p-6 text-center group hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300">
-                <div className="h-14 w-14 mx-auto rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                  <v.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+              <Card key={v.title} className="p-6 text-center group hover:shadow-xl hover:border-amber-200 dark:hover:border-amber-800 transition-all duration-300">
+                <div className="h-14 w-14 mx-auto rounded-2xl bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/40 dark:to-amber-800/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <v.icon className="h-6 w-6 text-amber-600 dark:text-amber-400" />
                 </div>
                 <h3 className="font-bold mb-2">{v.title}</h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400">{v.desc}</p>
@@ -82,14 +82,14 @@ export default function AboutPage() {
         </div>
 
         {/* CTA */}
-        <div className="text-center p-12 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white mb-8">
+        <div className="text-center p-12 rounded-3xl bg-gradient-to-r from-amber-600 to-orange-600 text-white mb-8">
           <Sparkles className="h-10 w-10 mx-auto mb-4 opacity-80" />
           <h2 className="text-2xl font-extrabold mb-3">Ready to Get Started?</h2>
-          <p className="text-blue-100 mb-6 max-w-md mx-auto">
+          <p className="text-amber-100 mb-6 max-w-md mx-auto">
             Browse our products, request a quote, or contact us for expert advice on your technology needs.
           </p>
           <div className="flex justify-center gap-3">
-            <Link href="/shop"><Button className="rounded-xl bg-white text-blue-700 hover:bg-blue-50">Shop Now</Button></Link>
+            <Link href="/shop"><Button className="rounded-xl bg-white text-amber-700 hover:bg-amber-50">Shop Now</Button></Link>
             <Link href="/contact"><Button variant="outline" className="rounded-xl border-white/30 text-white hover:bg-white/10">Contact Us</Button></Link>
           </div>
         </div>

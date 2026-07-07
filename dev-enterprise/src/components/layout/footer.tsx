@@ -33,23 +33,23 @@ export function Footer() {
   return (
     <footer className="bg-gray-50 dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
       {/* CTA */}
-      <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700">
+      <div className="bg-gradient-to-r from-amber-600 via-amber-700 to-orange-700">
         <div className="container mx-auto px-4 py-12 lg:py-16">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div>
               <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">
                 Subscribe to Our Newsletter
               </h2>
-              <p className="text-blue-100 text-sm lg:text-base max-w-md">
+              <p className="text-amber-100 text-sm lg:text-base max-w-md">
                 Get the latest products, exclusive deals, and tech tips delivered to your inbox.
               </p>
             </div>
             <div className="flex w-full lg:w-auto gap-2">
               <Input
                 placeholder="Enter your email"
-                className="h-12 min-w-[250px] rounded-xl bg-white/10 border-white/20 text-white placeholder:text-blue-100 focus:border-white focus:ring-white/20"
+                className="h-12 min-w-[250px] rounded-xl bg-white/10 border-white/20 text-white placeholder:text-amber-100 focus:border-white focus:ring-white/20"
               />
-              <Button className="h-12 rounded-xl bg-white text-blue-700 hover:bg-blue-50 shadow-lg shadow-black/10">
+              <Button className="h-12 rounded-xl bg-white text-amber-700 hover:bg-amber-50 shadow-lg shadow-black/10">
                 Subscribe
                 <ArrowRight className="h-4 w-4 ml-1" />
               </Button>
@@ -64,10 +64,10 @@ export function Footer() {
           {/* Company Info */}
           <div className="col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+              <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/30">
                 <Sparkles className="h-5 w-5 text-white" />
               </div>
-              <span className="font-bold text-xl bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+              <span className="font-bold text-xl bg-gradient-to-r from-amber-700 to-orange-700 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
                 {SITE_CONFIG.name}
               </span>
             </Link>
@@ -75,10 +75,10 @@ export function Footer() {
               Your trusted partner for computers, laptops, printers, CCTV cameras, networking equipment, and all IT accessories. Authorized dealer for top brands at wholesale & retail prices.
             </p>
             <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-              <a href={`tel:${SITE_CONFIG.phone}`} className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href={`tel:${SITE_CONFIG.phone}`} className="flex items-center gap-2 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
                 <Phone className="h-4 w-4" /> {SITE_CONFIG.phone}
               </a>
-              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              <a href={`mailto:${SITE_CONFIG.email}`} className="flex items-center gap-2 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
                 <Mail className="h-4 w-4" /> {SITE_CONFIG.email}
               </a>
               <div className="flex items-start gap-2">
@@ -99,7 +99,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-amber-600 dark:hover:text-amber-400 transition-colors"
                     >
                       {link.title}
                     </Link>
@@ -122,7 +122,7 @@ export function Footer() {
               <Link
                 key={brand.slug}
                 href={`/brands/${brand.slug}`}
-                className="px-4 py-2 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-sm text-gray-600 dark:text-gray-400 hover:border-blue-300 dark:hover:border-blue-700 hover:text-blue-600 dark:hover:text-blue-400 hover:shadow-md transition-all duration-200"
+                className="px-4 py-2 rounded-xl bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 text-sm text-gray-600 dark:text-gray-400 hover:border-amber-300 dark:hover:border-amber-700 hover:text-amber-600 dark:hover:text-amber-400 hover:shadow-md transition-all duration-200"
               >
                 {brand.name}
               </Link>
@@ -139,7 +139,7 @@ export function Footer() {
             {socialIcons.map((Icon, i) => (
               <button
                 key={i}
-                className="h-9 w-9 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:border-blue-300 dark:hover:border-blue-700 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950 transition-all duration-200"
+                className="h-9 w-9 rounded-full border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-500 dark:text-gray-400 hover:border-amber-300 dark:hover:border-amber-700 hover:text-amber-600 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950 transition-all duration-200"
               >
                 <Icon className="h-4 w-4" />
               </button>

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Truck, Shield, RefreshCw, HeadphonesIcon, BadgeIndianRupee, Store } from "lucide-react"
+import { Truck, Shield, RefreshCw, HeadphonesIcon, Store } from "lucide-react"
 
 const badges = [
   {
@@ -25,11 +25,6 @@ const badges = [
     desc: "Pre & post-sales tech support. Installation assistance for CCTV & networking.",
   },
   {
-    icon: BadgeIndianRupee,
-    title: "GST Invoice",
-    desc: "GST-compliant invoices for all purchases. Input tax credit for businesses.",
-  },
-  {
     icon: Store,
     title: "Wholesale Pricing",
     desc: "Special bulk pricing for businesses, retailers, and educational institutions.",
@@ -50,8 +45,8 @@ export function TrustBadges() {
               transition={{ delay: i * 0.1 }}
               className="text-center group"
             >
-              <div className="inline-flex h-14 w-14 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/40 dark:to-blue-900/20 items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
-                <badge.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+              <div className="inline-flex h-14 w-14 rounded-2xl bg-gradient-to-br from-amber-50 to-amber-100 dark:from-amber-950/40 dark:to-amber-900/20 items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+                <badge.icon className="h-6 w-6 text-amber-600 dark:text-amber-400" />
               </div>
               <h4 className="font-semibold text-sm mb-1">{badge.title}</h4>
               <p className="text-xs text-gray-500 dark:text-gray-400 max-w-[180px] mx-auto leading-relaxed">

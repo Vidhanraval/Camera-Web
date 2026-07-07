@@ -44,7 +44,6 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
       "Premium build quality with durable construction",
       "Energy-efficient design for reduced power consumption",
       "Comprehensive warranty and support included",
-      "GST invoice with input tax credit for businesses",
     ],
     basePrice: 45990,
     salePrice: 39990,
@@ -82,7 +81,7 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
     reviews: [
       { id: "r1", rating: 5, title: "Excellent product, great value!", content: "Been using this for 3 months now. Build quality is excellent and performance is top-notch. The after-sales support from Dev Enterprise was fantastic.", user: { name: "Rajesh K.", image: null }, createdAt: "2024-12-15" },
       { id: "r2", rating: 4, title: "Good but shipping took time", content: "Product is as described and works well. Only reason for 4 stars is because shipping took 2 days longer than expected. Otherwise, very satisfied.", user: { name: "Priya M.", image: null }, createdAt: "2024-11-28" },
-      { id: "r3", rating: 5, title: "Perfect for my business", content: "Ordered 5 units for my office team. Best price I could find with GST invoice. The team at Dev Enterprise helped with bulk pricing and quick delivery.", user: { name: "Amit S.", image: null }, createdAt: "2024-11-10" },
+      { id: "r3", rating: 5, title: "Perfect for my business", content: "Ordered 5 units for my office team. Best price I could find. The team at Dev Enterprise helped with bulk pricing and quick delivery.", user: { name: "Amit S.", image: null }, createdAt: "2024-11-10" },
     ],
     reviewCount: 3,
     avgRating: 4.7,
@@ -172,7 +171,7 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
                   className={cn(
                     "aspect-square rounded-xl bg-gray-100 dark:bg-gray-800 overflow-hidden border-2 transition-all duration-200",
                     selectedImage === i
-                      ? "border-blue-600 shadow-md"
+                      ? "border-amber-600 shadow-md"
                       : "border-transparent hover:border-gray-300"
                   )}
                 >
@@ -195,7 +194,7 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
           >
             {/* Brand & Badges */}
             <div className="flex items-center gap-2 flex-wrap">
-              <Link href={`/brands/${product.brand.slug}`} className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:underline">
+              <Link href={`/brands/${product.brand.slug}`} className="text-sm font-semibold text-amber-600 dark:text-amber-400 hover:underline">
                 {product.brand.name}
               </Link>
               <span className="text-gray-300 dark:text-gray-600">|</span>
@@ -232,7 +231,7 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
             {/* Price */}
             <div className="p-4 rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
               <div className="flex items-baseline gap-3 mb-1">
-                <span className="text-3xl lg:text-4xl font-extrabold text-blue-700 dark:text-blue-400">
+                <span className="text-3xl lg:text-4xl font-extrabold text-amber-700 dark:text-amber-400">
                   {formatPrice(salePrice || price)}
                 </span>
                 {salePrice && (
@@ -242,7 +241,7 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
                 )}
               </div>
               <p className="text-xs text-gray-500">
-                +GST @ {product.gstRate}% | HSN: {product.hsnCode} | SKU: {product.sku}
+                HSN: {product.hsnCode} | SKU: {product.sku}
               </p>
               {product.wholesalePrice && (
                 <p className="text-sm text-green-600 dark:text-green-400 mt-2 font-medium">
@@ -263,12 +262,12 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
                       className={cn(
                         "p-3 rounded-xl border-2 text-left transition-all duration-200",
                         selectedVariant === variant.id
-                          ? "border-blue-600 bg-blue-50 dark:bg-blue-950/30"
+                          ? "border-amber-600 bg-amber-50 dark:bg-amber-950/30"
                           : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
                       )}
                     >
                       <p className="text-sm font-medium">{variant.name}</p>
-                      <p className="text-sm font-bold text-blue-700 dark:text-blue-400">
+                      <p className="text-sm font-bold text-amber-700 dark:text-amber-400">
                         {formatPrice(variant.price)}
                       </p>
                       <p className={cn("text-xs", variant.stock > 0 ? "text-green-600" : "text-red-500")}>
@@ -365,7 +364,7 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
                 { icon: Award, text: "100% Genuine" },
               ].map((item) => (
                 <div key={item.text} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                  <item.icon className="h-4 w-4 text-blue-600" />
+                  <item.icon className="h-4 w-4 text-amber-600" />
                   {item.text}
                 </div>
               ))}
@@ -438,7 +437,7 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
                     <div key={review.id} className="p-5 rounded-2xl border border-gray-200 dark:border-gray-800">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2">
-                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">
+                          <div className="h-8 w-8 rounded-full bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center text-white text-sm font-bold">
                             {review.user.name[0]}
                           </div>
                           <span className="font-semibold text-sm">{review.user.name}</span>
@@ -465,11 +464,12 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
                   { icon: Truck, title: "Free Shipping", desc: "Free delivery on orders above ₹5,000. Fast shipping to all major cities." },
                   { icon: RefreshCw, title: "Easy Returns", desc: "7-day replacement guarantee for defective products. No questions asked." },
                   { icon: Shield, title: "Warranty", desc: "3-year manufacturer warranty. Free service at authorized centers pan India." },
-                  { icon: FileText, title: "GST Invoice", desc: "GST-compliant tax invoice provided for all purchases. Input tax credit eligible." },
+            
+
                 ].map((item) => (
                   <div key={item.title} className="flex gap-4 p-4 rounded-xl bg-gray-50 dark:bg-gray-900">
-                    <div className="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center shrink-0">
-                      <item.icon className="h-5 w-5 text-blue-600" />
+                    <div className="h-10 w-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shrink-0">
+                      <item.icon className="h-5 w-5 text-amber-600" />
                     </div>
                     <div>
                       <h4 className="font-semibold">{item.title}</h4>

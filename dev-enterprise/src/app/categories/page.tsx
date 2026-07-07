@@ -111,8 +111,8 @@ export default function CategoriesPage() {
           {categoryGroups.map((group) => (
             <Card key={group.title} className="p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 flex items-center justify-center">
-                  <group.icon className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/40 dark:to-amber-800/40 flex items-center justify-center">
+                  <group.icon className="h-5 w-5 text-amber-600 dark:text-amber-400" />
                 </div>
                 <h2 className="text-lg font-bold">{group.title}</h2>
               </div>
@@ -121,10 +121,10 @@ export default function CategoriesPage() {
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-950/50 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-150 text-sm group"
+                      className="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-950/50 hover:text-amber-600 dark:hover:text-amber-400 transition-all duration-150 text-sm group"
                     >
                       <span>{item.name}</span>
-                      <span className="text-xs text-gray-400 group-hover:text-blue-400">{item.count} Items</span>
+                      <span className="text-xs text-gray-400 group-hover:text-amber-400">{item.count} Items</span>
                     </Link>
                   </li>
                 ))}

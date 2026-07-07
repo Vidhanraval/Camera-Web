@@ -1,9 +1,8 @@
 import { HeroBanner } from "@/components/home/hero-banner"
 import { CategoriesGrid } from "@/components/home/categories-grid"
 import { FeaturedProducts } from "@/components/home/featured-products"
-import { BrandsShowcase } from "@/components/home/brands-showcase"
 import { Testimonials } from "@/components/home/testimonials"
-import { TrustBadges } from "@/components/home/trust-badges"
+import { CTABanner } from "@/components/home/cta-banner"
 
 export default function HomePage() {
   return (
@@ -11,8 +10,7 @@ export default function HomePage() {
       <HeroBanner />
       <CategoriesGrid />
       <FeaturedProducts />
-      <BrandsShowcase />
-      <TrustBadges />
+      <CTABanner />
       <Testimonials />
     </>
   )

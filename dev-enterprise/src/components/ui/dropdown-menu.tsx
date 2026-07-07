@@ -19,7 +19,7 @@ const DropdownMenuSubTrigger = React.forwardRef<
   <DropdownMenuPrimitive.SubTrigger
     ref={ref}
     className={cn(
-      "flex cursor-default select-none items-center rounded-lg px-3 py-2 text-sm outline-none focus:bg-blue-50 dark:focus:bg-blue-950 data-[state=open]:bg-blue-50 dark:data-[state=open]:bg-blue-950",
+      "flex cursor-default select-none items-center rounded-lg px-3 py-2 text-sm outline-none focus:bg-amber-50 dark:focus:bg-amber-950 data-[state=open]:bg-amber-50 dark:data-[state=open]:bg-amber-950",
       inset && "pl-8",
       className
     )}
@@ -71,7 +71,7 @@ const DropdownMenuItem = React.forwardRef<
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-lg px-3 py-2.5 text-sm outline-none transition-colors duration-150 focus:bg-blue-50 dark:focus:bg-blue-950 focus:text-blue-800 dark:focus:text-blue-200 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-lg px-3 py-2.5 text-sm outline-none transition-colors duration-150 focus:bg-amber-50 dark:focus:bg-amber-950 focus:text-amber-800 dark:focus:text-amber-200 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
       inset && "pl-8",
       className
     )}
@@ -87,7 +87,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   <DropdownMenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-lg py-2 pl-8 pr-3 text-sm outline-none focus:bg-blue-50 dark:focus:bg-blue-950",
+      "relative flex cursor-default select-none items-center rounded-lg py-2 pl-8 pr-3 text-sm outline-none focus:bg-amber-50 dark:focus:bg-amber-950",
       className
     )}
     checked={checked}

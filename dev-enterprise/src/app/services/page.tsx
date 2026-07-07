@@ -34,22 +34,22 @@ export default function ServicesPage() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {services.map((svc) => (
-            <Card key={svc.title} className="p-6 group hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-800 transition-all duration-300">
-              <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-900/40 dark:to-blue-800/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                <svc.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+            <Card key={svc.title} className="p-6 group hover:shadow-xl hover:border-amber-200 dark:hover:border-amber-800 transition-all duration-300">
+              <div className="h-12 w-12 rounded-2xl bg-gradient-to-br from-amber-100 to-amber-200 dark:from-amber-900/40 dark:to-amber-800/40 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <svc.icon className="h-6 w-6 text-amber-600 dark:text-amber-400" />
               </div>
               <h3 className="font-bold mb-2">{svc.title}</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">{svc.desc}</p>
-              <p className="text-sm font-semibold text-blue-600 dark:text-blue-400">{svc.price}</p>
+              <p className="text-sm font-semibold text-amber-600 dark:text-amber-400">{svc.price}</p>
             </Card>
           ))}
         </div>
 
-        <div className="text-center p-10 rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="text-center p-10 rounded-3xl bg-gradient-to-r from-amber-600 to-orange-600 text-white">
           <h2 className="text-2xl font-extrabold mb-3">Need a Service?</h2>
-          <p className="text-blue-100 mb-6 max-w-md mx-auto">Contact us for a free consultation or to schedule a service visit.</p>
+          <p className="text-amber-100 mb-6 max-w-md mx-auto">Contact us for a free consultation or to schedule a service visit.</p>
           <Link href="/contact">
-            <Button className="rounded-xl bg-white text-blue-700 hover:bg-blue-50">
+            <Button className="rounded-xl bg-white text-amber-700 hover:bg-amber-50">
               Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>

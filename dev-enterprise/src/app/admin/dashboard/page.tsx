@@ -16,7 +16,7 @@ import { formatPrice } from "@/lib/utils"
 
 const stats = [
   { icon: DollarSign, label: "Total Revenue", value: "₹24,85,000", change: "+12.5%", color: "from-green-500 to-emerald-600", up: true },
-  { icon: ShoppingCart, label: "Total Orders", value: "1,284", change: "+8.2%", color: "from-blue-500 to-blue-600", up: true },
+  { icon: ShoppingCart, label: "Total Orders", value: "1,284", change: "+8.2%", color: "from-amber-500 to-amber-600", up: true },
   { icon: Users, label: "Customers", value: "856", change: "+15.3%", color: "from-purple-500 to-purple-600", up: true },
   { icon: Package, label: "Products", value: "1,024", change: "+5.7%", color: "from-orange-500 to-orange-600", up: true },
 ]
@@ -55,7 +55,7 @@ export default function AdminDashboard() {
       {/* Sidebar */}
       <aside className={`${sidebarOpen ? 'w-64' : 'w-20'} bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-800 flex flex-col transition-all duration-300 shrink-0`}>
         <div className="p-4 border-b border-gray-200 dark:border-gray-800 flex items-center gap-3">
-          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shrink-0">
+          <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center shrink-0">
             <TrendingUp className="h-4 w-4 text-white" />
           </div>
           {sidebarOpen && <span className="font-bold text-sm">Admin Panel</span>}
@@ -67,7 +67,7 @@ export default function AdminDashboard() {
               href={link.href}
               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all duration-150 ${
                 link.active
-                  ? "bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 font-semibold"
+                  ? "bg-amber-50 dark:bg-amber-950/50 text-amber-700 dark:text-amber-300 font-semibold"
                   : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800"
               }`}
             >
@@ -104,7 +104,7 @@ export default function AdminDashboard() {
               <Bell className="h-5 w-5" />
               <span className="absolute -top-0.5 -right-0.5 h-2.5 w-2.5 bg-red-500 rounded-full" />
             </Button>
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center text-white text-sm font-bold">
+            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center text-white text-sm font-bold">
               A
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function AdminDashboard() {
               <Card>
                 <div className="p-5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
                   <h2 className="font-bold">Recent Orders</h2>
-                  <Link href="/admin/orders" className="text-xs font-semibold text-blue-600 hover:underline">View All</Link>
+                  <Link href="/admin/orders" className="text-xs font-semibold text-amber-600 hover:underline">View All</Link>
                 </div>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">

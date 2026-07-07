@@ -125,6 +125,31 @@ export default function RootLayout({
           <TooltipProvider delayDuration={300}>
             <Header />
             <main className="flex-1">{children}</main>
+            {/* Trust Strip */}
+            <div className="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+              <div className="container mx-auto px-4 py-8">
+                <div className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-sm text-gray-600 dark:text-gray-400">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-green-500" />
+                    Pan India Delivery
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-green-500" />
+                    100% Genuine Products
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-green-500" />
+                    Easy Returns
+                  </span>
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-green-500" />
+                    Expert Support
+                  </span>
+
+
+                </div>
+              </div>
+            </div>
             <Footer />
             <Toaster />
           </TooltipProvider>

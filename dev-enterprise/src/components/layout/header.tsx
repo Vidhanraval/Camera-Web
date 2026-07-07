@@ -61,23 +61,23 @@ export function Header() {
   return (
     <>
       {/* Top Bar */}
-      <div className="hidden lg:block bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white">
+      <div className="hidden lg:block bg-gradient-to-r from-amber-600 via-amber-700 to-orange-700 text-white">
         <div className="container mx-auto px-4 h-10 flex items-center justify-between text-sm">
           <div className="flex items-center gap-6">
-            <a href={`tel:${SITE_CONFIG.phone}`} className="flex items-center gap-1.5 hover:text-blue-200 transition-colors">
+            <a href={`tel:${SITE_CONFIG.phone}`} className="flex items-center gap-1.5 hover:text-amber-200 transition-colors">
               <Phone className="h-3.5 w-3.5" /> {SITE_CONFIG.phone}
             </a>
-            <span className="text-blue-300">|</span>
-            <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-blue-200 transition-colors">
+            <span className="text-amber-300">|</span>
+            <a href={`mailto:${SITE_CONFIG.email}`} className="hover:text-amber-200 transition-colors">
               {SITE_CONFIG.email}
             </a>
           </div>
           <div className="flex items-center gap-4">
-            <span>GST: {SITE_CONFIG.gstin}</span>
-            <span className="text-blue-300">|</span>
-            <Link href="/about" className="hover:text-blue-200 transition-colors">About</Link>
-            <Link href="/contact" className="hover:text-blue-200 transition-colors">Contact</Link>
-            <Link href="/faq" className="hover:text-blue-200 transition-colors">Help</Link>
+
+
+            <Link href="/about" className="hover:text-amber-200 transition-colors">About</Link>
+            <Link href="/contact" className="hover:text-amber-200 transition-colors">Contact</Link>
+            <Link href="/faq" className="hover:text-amber-200 transition-colors">Help</Link>
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ export function Header() {
         className={cn(
           "sticky top-0 z-50 transition-all duration-500",
           scrolled
-            ? "bg-white/80 dark:bg-gray-950/80 backdrop-blur-2xl shadow-lg shadow-blue-500/5 border-b border-gray-200/50 dark:border-gray-800/50"
+            ? "bg-white/80 dark:bg-gray-950/80 backdrop-blur-2xl shadow-lg shadow-amber-500/5 border-b border-gray-200/50 dark:border-gray-800/50"
             : "bg-white dark:bg-gray-950 border-b border-transparent"
         )}
       >
@@ -95,11 +95,11 @@ export function Header() {
           <div className="flex items-center justify-between h-16 lg:h-20 gap-4">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 shrink-0">
-              <div className="relative h-10 w-10 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/30">
+              <div className="relative h-10 w-10 rounded-xl bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center shadow-lg shadow-amber-500/30">
                 <Sparkles className="h-5 w-5 text-white" />
               </div>
               <div className="hidden sm:block">
-                <h1 className="text-lg font-bold bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent leading-tight">
+                <h1 className="text-lg font-bold bg-gradient-to-r from-amber-700 to-orange-700 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent leading-tight">
                   {SITE_CONFIG.name}
                 </h1>
                 <p className="text-[10px] text-gray-500 dark:text-gray-400 leading-tight tracking-wider uppercase">
@@ -119,7 +119,7 @@ export function Header() {
                           <NavigationMenuTrigger
                             className={cn(
                               "h-10 text-sm font-medium",
-                              pathname === link.href && "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950"
+                              pathname === link.href && "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950"
                             )}
                           >
                             {link.title}
@@ -131,7 +131,7 @@ export function Header() {
                                   <div key={child.href}>
                                     <Link
                                       href={child.href}
-                                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold text-gray-900 dark:text-gray-100 hover:bg-blue-50 dark:hover:bg-blue-950 hover:text-blue-700 dark:hover:text-blue-300 transition-all duration-150"
+                                      className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-semibold text-gray-900 dark:text-gray-100 hover:bg-amber-50 dark:hover:bg-amber-950 hover:text-amber-700 dark:hover:text-amber-300 transition-all duration-150"
                                     >
                                       {iconMap[child.title] || <ChevronDown className="h-3 w-3" />}
                                       {child.title}
@@ -142,7 +142,7 @@ export function Header() {
                                           <Link
                                             key={sub.href}
                                             href={sub.href}
-                                            className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-blue-950 hover:text-blue-600 dark:hover:text-blue-300 transition-all duration-150"
+                                            className="block px-3 py-1.5 rounded-lg text-sm text-gray-600 dark:text-gray-400 hover:bg-amber-50 dark:hover:bg-amber-950 hover:text-amber-600 dark:hover:text-amber-300 transition-all duration-150"
                                           >
                                             {sub.title}
                                           </Link>
@@ -160,13 +160,13 @@ export function Header() {
                               <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-800 flex justify-between">
                                 <Link
                                   href="/shop"
-                                  className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                                  className="text-sm font-medium text-amber-600 dark:text-amber-400 hover:underline"
                                 >
                                   View All Products →
                                 </Link>
                                 <Link
                                   href="/brands"
-                                  className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline"
+                                  className="text-sm font-medium text-amber-600 dark:text-amber-400 hover:underline"
                                 >
                                   Shop by Brand →
                                 </Link>
@@ -180,7 +180,7 @@ export function Header() {
                             href={link.href}
                             className={cn(
                               navigationMenuTriggerStyle(),
-                              pathname === link.href && "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950"
+                              pathname === link.href && "text-amber-600 dark:text-amber-400 bg-amber-50 dark:bg-amber-950"
                             )}
                           >
                             {link.title}
@@ -239,7 +239,7 @@ export function Header() {
                 <Button variant="ghost" size="icon" className="rounded-full relative">
                   <ShoppingCart className="h-5 w-5" />
                   {mounted && cartCount > 0 && (
-                    <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-[10px] bg-blue-600">
+                    <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-[10px] bg-amber-600">
                       {cartCount}
                     </Badge>
                   )}
@@ -325,10 +325,10 @@ function MobileMenu() {
           className="flex items-center gap-2"
           onClick={() => setMobileMenuOpen(false)}
         >
-          <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
+          <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-amber-600 to-orange-600 flex items-center justify-center">
             <Sparkles className="h-4 w-4 text-white" />
           </div>
-          <span className="font-bold text-lg bg-gradient-to-r from-blue-700 to-indigo-700 dark:from-blue-400 dark:to-indigo-400 bg-clip-text text-transparent">
+          <span className="font-bold text-lg bg-gradient-to-r from-amber-700 to-orange-700 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
             {SITE_CONFIG.name}
           </span>
         </Link>
@@ -363,7 +363,7 @@ function MobileMenu() {
                         <Link
                           href={child.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block px-10 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600"
+                          className="block px-10 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-amber-600"
                         >
                           {child.title}
                         </Link>
@@ -372,7 +372,7 @@ function MobileMenu() {
                             key={sub.href}
                             href={sub.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="block px-14 py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600"
+                            className="block px-14 py-2 text-sm text-gray-500 dark:text-gray-400 hover:text-amber-600"
                           >
                             {sub.title}
                           </Link>

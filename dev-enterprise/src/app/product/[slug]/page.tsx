@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
   const { slug } = await params
   return {
     title: slug.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase()),
-    description: `Buy ${slug.replace(/-/g, " ")} at best price from Dev Enterprise. Authorized dealer with GST invoice, warranty, and fast delivery.`,
+    description: `Buy ${slug.replace(/-/g, " ")} at best price from Dev Enterprise. Authorized dealer with warranty and fast delivery.`,
   }
 }
 

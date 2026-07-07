@@ -3,9 +3,8 @@
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Star, Heart, ShoppingCart, Eye, ArrowRight, Zap } from "lucide-react"
+import { Star, Heart, ShoppingCart, Eye, ArrowRight, TrendingUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { formatPrice, getDiscountPercent, cn } from "@/lib/utils"
 import { useCartStore } from "@/lib/store/cart-store"
@@ -109,38 +108,6 @@ const products = [
     gstRate: 18,
     badges: ["Value Deal", "33% OFF"],
   },
-  {
-    id: "p7",
-    name: "Samsung 1TB SSD 870 EVO",
-    slug: "samsung-1tb-ssd-870-evo",
-    price: 8999,
-    salePrice: 7499,
-    image: "/images/products/samsung-ssd.jpg",
-    category: "Storage",
-    brand: "Samsung",
-    rating: 4.9,
-    reviews: 512,
-    stock: 80,
-    sku: "SSD-SAM-870-1TB",
-    gstRate: 18,
-    badges: ["Top Rated"],
-  },
-  {
-    id: "p8",
-    name: "Canon EOS Webcam Kit",
-    slug: "canon-eos-webcam-kit",
-    price: 5999,
-    salePrice: 4999,
-    image: "/images/products/canon-webcam.jpg",
-    category: "Accessories",
-    brand: "Canon",
-    rating: 4.3,
-    reviews: 78,
-    stock: 35,
-    sku: "ACC-CAN-WEBCAM",
-    gstRate: 18,
-    badges: ["Bundle Deal"],
-  },
 ]
 
 export function FeaturedProducts() {
@@ -166,56 +133,56 @@ export function FeaturedProducts() {
   }
 
   return (
-    <section className="py-16 lg:py-24 bg-gray-50/50 dark:bg-gray-950/50">
+    <section className="py-20 lg:py-28 bg-white dark:bg-gray-950">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-12 gap-4">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="flex flex-col sm:flex-row items-start sm:items-end justify-between mb-14 gap-4"
+        >
           <div>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-sm font-semibold text-blue-600 dark:text-blue-400 uppercase tracking-wider mb-2"
-            >
-              Featured Products
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-3xl lg:text-4xl font-extrabold tracking-tight"
-            >
-              Top Picks For You
-            </motion.h2>
+            <div className="flex items-center gap-2 mb-3">
+              <TrendingUp className="h-5 w-5 text-amber-500" />
+              <span className="text-sm font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Popular Right Now</span>
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-black tracking-tight">
+              Featured{" "}
+              <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Products</span>
+            </h2>
           </div>
           <Link href="/shop?sort=bestseller">
-            <Button variant="outline" className="rounded-xl">
-              View All <ArrowRight className="ml-2 h-4 w-4" />
+            <Button variant="outline" size="lg" className="rounded-2xl border-2 group text-base">
+              View All Products
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Button>
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+        {/* Product Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-6">
           {products.map((product, i) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
+              transition={{ delay: i * 0.08, duration: 0.5 }}
             >
-              <Card className="group h-full overflow-hidden">
+              <div className="group relative bg-white dark:bg-gray-900 rounded-3xl border border-gray-100 dark:border-gray-800 overflow-hidden hover:shadow-2xl hover:border-transparent transition-all duration-500 hover:-translate-y-1">
                 {/* Image */}
-                <div className="relative aspect-square bg-gray-100 dark:bg-gray-800 img-hover-zoom overflow-hidden">
-                  <div className="w-full h-full flex items-center justify-center text-4xl font-bold text-gray-300 dark:text-gray-600">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
+                <div className="relative aspect-square bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-850 overflow-hidden">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                  />
+
+                  {/* Gradient overlay on hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Badges */}
                   <div className="absolute top-3 left-3 flex flex-col gap-1">
@@ -223,7 +190,7 @@ export function FeaturedProducts() {
                       <Badge
                         key={badge}
                         variant={badge.includes("OFF") ? "destructive" : "premium"}
-                        className="text-[10px] font-bold backdrop-blur-sm"
+                        className="text-[10px] font-bold shadow-lg"
                       >
                         {badge}
                       </Badge>
@@ -231,11 +198,11 @@ export function FeaturedProducts() {
                   </div>
 
                   {/* Quick Actions */}
-                  <div className="absolute top-3 right-3 flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute top-3 right-3 flex flex-col gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
                     <Button
                       size="icon"
                       variant="secondary"
-                      className="h-9 w-9 rounded-xl shadow-lg"
+                      className="h-10 w-10 rounded-2xl shadow-lg hover:scale-110 transition-transform"
                       onClick={() => {
                         toggleItem({
                           id: product.id,
@@ -264,7 +231,7 @@ export function FeaturedProducts() {
                     <Button
                       size="icon"
                       variant="secondary"
-                      className="h-9 w-9 rounded-xl shadow-lg"
+                      className="h-10 w-10 rounded-2xl shadow-lg hover:scale-110 transition-transform"
                       onClick={() => router.push(`/product/${product.slug}`)}
                     >
                       <Eye className="h-4 w-4" />
@@ -274,8 +241,7 @@ export function FeaturedProducts() {
                   {/* Add to Cart Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                     <Button
-                      className="w-full rounded-xl shadow-lg"
-                      size="sm"
+                      className="w-full rounded-2xl shadow-xl text-base h-12"
                       onClick={() => handleAddToCart(product)}
                     >
                       <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
@@ -283,87 +249,56 @@ export function FeaturedProducts() {
                   </div>
                 </div>
 
-                <CardContent className="p-4">
-                  {/* Brand & Category */}
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
-                    {product.brand} • {product.category}
+                {/* Content */}
+                <div className="p-5">
+                  <p className="text-xs font-medium text-gray-400 dark:text-gray-500 mb-1.5">
+                    {product.brand}
                   </p>
-
-                  {/* Name */}
                   <Link href={`/product/${product.slug}`}>
-                    <h3 className="font-semibold text-sm mb-2 line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <h3 className="font-bold text-sm mb-3 line-clamp-2 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors leading-snug">
                       {product.name}
                     </h3>
                   </Link>
 
                   {/* Rating */}
-                  <div className="flex items-center gap-1 mb-2">
-                    <div className="flex items-center">
+                  <div className="flex items-center gap-1.5 mb-3">
+                    <div className="flex items-center gap-0.5">
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
                           className={cn(
                             "h-3.5 w-3.5",
                             i < Math.floor(product.rating)
-                              ? "fill-yellow-400 text-yellow-400"
+                              ? "fill-amber-400 text-amber-400"
                               : "fill-gray-200 text-gray-200 dark:fill-gray-700 dark:text-gray-700"
                           )}
                         />
                       ))}
                     </div>
-                    <span className="text-xs text-gray-500">({product.reviews})</span>
+                    <span className="text-xs font-semibold text-gray-400">({product.reviews})</span>
                   </div>
 
                   {/* Price */}
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-bold text-blue-700 dark:text-blue-400">
+                    <span className="text-xl font-black text-gray-900 dark:text-white">
                       {formatPrice(product.salePrice)}
                     </span>
                     {product.salePrice < product.price && (
                       <>
-                        <span className="text-sm text-gray-400 line-through">
+                        <span className="text-sm text-gray-400 line-through font-medium">
                           {formatPrice(product.price)}
                         </span>
-                        <Badge variant="success" className="text-[10px]">
+                        <Badge variant="success" className="text-[10px] font-bold">
                           {getDiscountPercent(product.price, product.salePrice)}% OFF
                         </Badge>
                       </>
                     )}
                   </div>
-
-                  {/* GST Note */}
-                  <p className="text-[10px] text-gray-400 mt-1">+GST @ {product.gstRate}%</p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Quick CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 p-6 lg:p-8 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center"
-        >
-          <Zap className="h-8 w-8 mx-auto mb-3 opacity-80" />
-          <h3 className="text-xl font-bold mb-2">Need Bulk Order or Wholesale Pricing?</h3>
-          <p className="text-blue-100 mb-4 max-w-lg mx-auto">
-            Contact us for bulk discounts, GST invoices, and special pricing on orders above ₹50,000.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Link href="/contact">
-              <Button className="rounded-xl bg-white text-blue-700 hover:bg-blue-50">
-                Get Quote
-              </Button>
-            </Link>
-            <a href={`tel:${"+91-XXXXXXXXXX"}`}>
-              <Button variant="outline" className="rounded-xl border-white/30 text-white hover:bg-white/10">
-                Call Now
-              </Button>
-            </a>
-          </div>
-        </motion.div>
       </div>
     </section>
   )

@@ -74,13 +74,13 @@ export function WishlistContent() {
                   </Link>
                   <CardContent className="p-4">
                     <Link href={`/product/${product.slug}`}>
-                      <h3 className="font-semibold text-sm mb-2 line-clamp-2 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                      <h3 className="font-semibold text-sm mb-2 line-clamp-2 hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
                         {product.name}
                       </h3>
                     </Link>
                     <p className="text-xs text-gray-500 mb-2">{product.category}</p>
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-lg font-bold text-blue-700 dark:text-blue-400">
+                      <span className="text-lg font-bold text-amber-700 dark:text-amber-400">
                         {formatPrice(product.salePrice || product.price)}
                       </span>
                       {product.salePrice && (

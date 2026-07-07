@@ -55,13 +55,13 @@ export default function ContactPage() {
           <div className="lg:col-span-1 space-y-4">
             {contactInfo.map((info) => (
               <Card key={info.label} className="p-5 flex items-start gap-4">
-                <div className="h-10 w-10 rounded-xl bg-blue-100 dark:bg-blue-900/40 flex items-center justify-center shrink-0">
-                  <info.icon className="h-5 w-5 text-blue-600" />
+                <div className="h-10 w-10 rounded-xl bg-amber-100 dark:bg-amber-900/40 flex items-center justify-center shrink-0">
+                  <info.icon className="h-5 w-5 text-amber-600" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-gray-500 uppercase mb-0.5">{info.label}</p>
                   {info.href ? (
-                    <a href={info.href} className="text-sm font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <a href={info.href} className="text-sm font-medium hover:text-amber-600 dark:hover:text-amber-400 transition-colors">
                       {info.value}
                     </a>
                   ) : (
@@ -76,7 +76,7 @@ export default function ContactPage() {
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="lg:col-span-2">
             <Card className="p-6 lg:p-8">
               <div className="flex items-center gap-3 mb-6">
-                <MessageSquare className="h-5 w-5 text-blue-600" />
+                <MessageSquare className="h-5 w-5 text-amber-600" />
                 <h2 className="text-xl font-bold">Send us a Message</h2>
               </div>
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">

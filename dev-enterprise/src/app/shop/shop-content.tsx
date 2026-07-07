@@ -271,7 +271,7 @@ function ProductListItem({ product }: ProductCardProps) {
         <p className="text-xs text-gray-500 mb-1">{product.brand?.name} • {product.category.name}</p>
         <h3 className="font-semibold text-sm mb-1 truncate">{product.name}</h3>
         <div className="flex items-center gap-2">
-          <span className="font-bold text-blue-700 dark:text-blue-400">{formatPrice(salePrice || price)}</span>
+          <span className="font-bold text-amber-700 dark:text-amber-400">{formatPrice(salePrice || price)}</span>
           {salePrice && <span className="text-sm text-gray-400 line-through">{formatPrice(price)}</span>}
         </div>
       </div>
