@@ -5,7 +5,7 @@ export const SITE_CONFIG = {
   description:
     "Dev Enterprise is a leading wholesale and retail provider of computers, laptops, printers, networking equipment, CCTV cameras, and IT accessories. Authorized dealer for Dell, HP, Lenovo, ASUS, Canon, Brother, Epson, Samsung, LG, and more.",
   url: process.env.NEXT_PUBLIC_APP_URL || "https://deventerprise.com",
-  phone: "+91-XXXXXXXXXX",
+  phone: "+91-7600879404",
   email: "info@deventerprise.com",
   address:
     "Shop No. 12, Tech Plaza, Main Road, City Center, Maharashtra - 400001",
