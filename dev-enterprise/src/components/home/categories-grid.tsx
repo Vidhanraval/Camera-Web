@@ -41,11 +41,11 @@ export function CategoriesGrid() {
           transition={{ duration: 0.6 }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl lg:text-5xl font-black tracking-tight mb-4">
+          <h2 className="text-2xl lg:text-4xl font-extrabold tracking-tight mb-3">
             What We{" "}
             <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Offer</span>
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 text-lg max-w-xl mx-auto">
+          <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto">
             Everything your business needs — from computers to security systems
           </p>
         </motion.div>

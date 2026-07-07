@@ -147,7 +147,7 @@ export function FeaturedProducts() {
               <TrendingUp className="h-5 w-5 text-amber-500" />
               <span className="text-sm font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Popular Right Now</span>
             </div>
-            <h2 className="text-3xl lg:text-5xl font-black tracking-tight">
+            <h2 className="text-2xl lg:text-4xl font-extrabold tracking-tight">
               Featured{" "}
               <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Products</span>
             </h2>
@@ -280,7 +280,7 @@ export function FeaturedProducts() {
 
                   {/* Price */}
                   <div className="flex items-center gap-2">
-                    <span className="text-xl font-black text-gray-900 dark:text-white">
+                    <span className="text-lg font-extrabold text-gray-900 dark:text-white">
                       {formatPrice(product.salePrice)}
                     </span>
                     {product.salePrice < product.price && (

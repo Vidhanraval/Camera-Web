@@ -99,7 +99,7 @@ export function HeroBanner() {
   }
 
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden bg-white dark:bg-gray-950">
+    <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center overflow-hidden bg-white dark:bg-gray-950">
       {/* Animated background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
@@ -147,7 +147,7 @@ export function HeroBanner() {
                 </div>
 
                 {/* Main Heading */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.05] tracking-tight mb-6">
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] tracking-tight mb-5">
                   {slides[current].title}{" "}
                   <span className={`bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`}>
                     {slides[current].highlight}
@@ -155,7 +155,7 @@ export function HeroBanner() {
                 </h1>
 
                 {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 text-lg lg:text-xl leading-relaxed mb-8 max-w-xl">
+                <p className="text-gray-600 dark:text-gray-300 text-base lg:text-lg leading-relaxed mb-7 max-w-lg">
                   {slides[current].description}
                 </p>
 
@@ -164,7 +164,7 @@ export function HeroBanner() {
                   <Link href={slides[current].link}>
                     <Button
                       size="lg"
-                      className={`rounded-2xl text-base px-8 h-14 bg-gradient-to-r ${slides[current].gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-0 group`}
+                      className={`rounded-2xl text-sm px-6 h-12 bg-gradient-to-r ${slides[current].gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-0 group`}
                     >
                       {slides[current].cta}
                       <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -174,7 +174,7 @@ export function HeroBanner() {
                     <Button
                       variant="outline"
                       size="lg"
-                      className="rounded-2xl text-base px-8 h-14 border-2 hover:scale-105 transition-all duration-300"
+                      className="rounded-2xl text-sm px-6 h-12 border-2 hover:scale-105 transition-all duration-300"
                     >
                       {slides[current].secondaryCta}
                     </Button>
@@ -227,12 +227,12 @@ export function HeroBanner() {
                 className="relative"
               >
                 {/* Main visual circle */}
-                <div className={`relative w-72 h-72 sm:w-80 sm:h-80 lg:w-[440px] lg:h-[440px] rounded-[40px] bg-gradient-to-br ${slides[current].gradient} p-[3px] shadow-2xl`}>
-                  <div className="w-full h-full rounded-[37px] bg-white dark:bg-gray-950 flex items-center justify-center overflow-hidden">
-                    <div className={`w-56 h-56 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full ${slides[current].bgGlow} flex items-center justify-center animate-float`}>
+                <div className={`relative w-64 h-64 sm:w-72 sm:h-72 lg:w-[380px] lg:h-[380px] rounded-[36px] bg-gradient-to-br ${slides[current].gradient} p-[3px] shadow-2xl`}>
+                  <div className="w-full h-full rounded-[33px] bg-white dark:bg-gray-950 flex items-center justify-center overflow-hidden">
+                    <div className={`w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full ${slides[current].bgGlow} flex items-center justify-center animate-float`}>
                       <div className="text-center">
-                        <Sparkles className={`h-16 w-16 sm:h-20 sm:w-20 lg:h-24 lg:w-24 mx-auto bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`} />
-                        <p className={`mt-4 text-lg font-bold bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`}>
+                        <Sparkles className={`h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20 mx-auto bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`} />
+                        <p className={`mt-3 text-base font-bold bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`}>
                           {slides[current].tag}
                         </p>
                       </div>
@@ -281,7 +281,7 @@ export function HeroBanner() {
               className="text-center p-6 rounded-3xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 hover:border-amber-200 dark:hover:border-amber-800 hover:shadow-lg transition-all duration-300 group"
             >
               <stat.icon className="h-7 w-7 mx-auto mb-3 text-amber-500 group-hover:scale-110 transition-transform duration-300" />
-              <div className="text-2xl lg:text-3xl font-black bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
+              <div className="text-xl lg:text-2xl font-extrabold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
                 {stat.value}
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">{stat.label}</div>

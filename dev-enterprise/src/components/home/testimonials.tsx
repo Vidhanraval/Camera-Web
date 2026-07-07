@@ -70,11 +70,11 @@ export function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-14"
         >
-          <h2 className="text-3xl lg:text-5xl font-black tracking-tight mb-3">
+          <h2 className="text-2xl lg:text-4xl font-extrabold tracking-tight mb-3">
             Loved by{" "}
             <span className="bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">Customers</span>
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 text-lg">
+          <p className="text-gray-500 dark:text-gray-400">
             Real feedback from real people across India
           </p>
         </motion.div>

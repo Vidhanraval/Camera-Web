@@ -31,31 +31,31 @@ export function CTABanner() {
               <span className="inline-block px-4 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/30 text-amber-300 text-sm font-semibold mb-6">
                 Need Help Choosing?
               </span>
-              <h2 className="text-3xl lg:text-5xl font-black text-white mb-4 leading-tight">
+              <h2 className="text-2xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
                 Let&apos;s Find the Perfect{" "}
                 <span className="bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
                   Solution for You
                 </span>
               </h2>
-              <p className="text-gray-400 text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+              <p className="text-gray-400 mb-8 max-w-xl mx-auto leading-relaxed">
                 Whether you need a single laptop or a complete office setup — our experts will guide you to the right products at the best price.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="/shop">
-                  <Button size="lg" className="rounded-2xl text-base px-10 h-14 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/40 hover:scale-105 transition-all duration-300 border-0 group">
+                  <Button size="lg" className="rounded-2xl text-sm px-8 h-12 bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-xl shadow-amber-500/30 hover:shadow-2xl hover:shadow-amber-500/40 hover:scale-105 transition-all duration-300 border-0 group">
                     Browse Products
                     <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
                 <a href={`tel:${SITE_CONFIG.phone}`}>
-                  <Button variant="outline" size="lg" className="rounded-2xl text-base px-10 h-14 border-2 border-gray-600 text-white hover:bg-white/10 hover:border-gray-400 transition-all duration-300">
+                  <Button variant="outline" size="lg" className="rounded-2xl text-sm px-8 h-12 border-2 border-gray-600 text-white hover:bg-white/10 hover:border-gray-400 transition-all duration-300">
                     <Phone className="h-4 w-4 mr-2" />
                     Call Now
                   </Button>
                 </a>
                 <a href={`https://wa.me/91${SITE_CONFIG.phone.replace(/[^0-9]/g, "")}`} target="_blank" rel="noopener noreferrer">
-                  <Button variant="ghost" size="lg" className="rounded-2xl text-base px-8 h-14 text-green-400 hover:bg-green-500/10 transition-all duration-300">
+                  <Button variant="ghost" size="lg" className="rounded-2xl text-sm px-6 h-12 text-green-400 hover:bg-green-500/10 transition-all duration-300">
                     <MessageCircle className="h-5 w-5 mr-2" />
                     WhatsApp
                   </Button>
