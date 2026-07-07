@@ -154,10 +154,10 @@ export function ProductDetailContent({ slug }: ProductDetailContentProps) {
                 alt={product.name}
                 className="w-full h-full object-cover"
               />
-              <button className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 dark:bg-gray-900/90 shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <button className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 dark:bg-gray-900/90 shadow-lg flex items-center justify-center sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                 <ChevronLeft className="h-5 w-5" />
               </button>
-              <button className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 dark:bg-gray-900/90 shadow-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <button className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/90 dark:bg-gray-900/90 shadow-lg flex items-center justify-center sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                 <ChevronRight className="h-5 w-5" />
               </button>
             </div>

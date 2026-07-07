@@ -3,29 +3,9 @@
 import { motion } from "framer-motion"
 import { Star } from "lucide-react"
 import { cn } from "@/lib/utils"
+import type { TestimonialItem } from "@/lib/data"
 
-const testimonials = [
-  {
-    name: "Rajesh Sharma",
-    role: "IT Manager, Mumbai",
-    text: "Ordered 50 Dell workstations for our office. Dev Enterprise handled bulk pricing, GST invoice, and delivery within 4 days. Their after-sales support is genuinely good — they actually pick up the phone.",
-    rating: 5,
-  },
-  {
-    name: "Priya Patel",
-    role: "Cafe Owner, Pune",
-    text: "I needed CCTV cameras for my restaurant. Their team visited the site, suggested the right cameras, installed everything professionally, and even trained my staff on using the app. Zero headache.",
-    rating: 5,
-  },
-  {
-    name: "Amit Verma",
-    role: "Student, Delhi",
-    text: "Compared prices on Amazon, Flipkart, and 3 local shops — Dev Enterprise gave me the best deal on my ASUS laptop. Genuine sealed-box product. Saved almost ₹3,000. Highly recommended.",
-    rating: 5,
-  },
-]
-
-export function Testimonials() {
+export function Testimonials({ data }: { data: TestimonialItem[] }) {
   return (
     <section className="py-20 lg:py-28 bg-gray-50/50 dark:bg-gray-950/50">
       <div className="container mx-auto px-4">
@@ -43,7 +23,7 @@ export function Testimonials() {
 
           {/* Testimonials — stacked cards, no carousel */}
           <div className="space-y-4">
-            {testimonials.map((t, i) => (
+            {data.map((t, i) => (
               <motion.blockquote
                 key={t.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -60,7 +40,7 @@ export function Testimonials() {
                 </div>
 
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                  &ldquo;{t.text}&rdquo;
+                  &ldquo;{t.content}&rdquo;
                 </p>
 
                 <footer className="flex items-center gap-3">

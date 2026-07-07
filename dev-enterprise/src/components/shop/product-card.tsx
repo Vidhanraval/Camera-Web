@@ -110,7 +110,7 @@ export function ProductCard({ product }: ProductCardProps) {
           )}
 
           {/* Quick Actions */}
-          <div className="absolute top-3 right-3 flex flex-col gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300">
+          <div className="absolute top-3 right-3 flex flex-col gap-1.5 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300">
             <Button
               size="icon"
               variant="secondary"
@@ -175,7 +175,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
 
           {/* Add to Cart */}
-          <div className="absolute bottom-3 left-3 right-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+          <div className="absolute bottom-3 left-3 right-3 sm:translate-y-full sm:group-hover:translate-y-0 transition-transform duration-300">
             <Button className="w-full rounded-xl shadow-lg" size="sm" onClick={(e) => { e.preventDefault(); e.stopPropagation(); handleAddToCart() }}>
               <ShoppingCart className="h-4 w-4 mr-2" /> Add to Cart
             </Button>

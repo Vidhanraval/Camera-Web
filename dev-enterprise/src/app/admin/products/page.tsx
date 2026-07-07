@@ -41,7 +41,7 @@ export default function AdminProductsPage() {
 
         <div className="p-6">
           {/* Stats */}
-          <div className="grid grid-cols-4 gap-4 mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
             {[
               { label: "Total Products", value: "1,024" },
               { label: "Active", value: "980" },

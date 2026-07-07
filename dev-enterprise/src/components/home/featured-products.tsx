@@ -10,52 +10,9 @@ import { formatPrice, getDiscountPercent, cn } from "@/lib/utils"
 import { useCartStore } from "@/lib/store/cart-store"
 import { useWishlistStore } from "@/lib/store/wishlist-store"
 import { toast } from "sonner"
+import type { ProductListItem } from "@/lib/data"
 
-const products = [
-  {
-    id: "p1", name: "Dell Inspiron 15 — Intel i5, 8GB, 512GB SSD",
-    slug: "dell-inspiron-15-laptop", price: 45990, salePrice: 39990,
-    image: "/images/products/dell-inspiron.jpg", brand: "Dell", rating: 4.5, reviews: 128, stock: 25,
-    sku: "LAP-DEL-INSP15", gstRate: 18, category: "Laptops",
-    badge: "Staff Pick",
-  },
-  {
-    id: "p2", name: "HP LaserJet Pro — Wireless Mono Printer",
-    slug: "hp-laserjet-pro-printer", price: 28500, salePrice: 24999,
-    image: "/images/products/hp-laserjet.jpg", brand: "HP", rating: 4.8, reviews: 89, stock: 15,
-    sku: "PRN-HP-LJPRO", gstRate: 18, category: "Printers",
-    badge: "₹3,501 OFF",
-  },
-  {
-    id: "p3", name: "Hikvision 4MP IP Bullet Camera — Outdoor",
-    slug: "hikvision-ip-cctv-camera", price: 4500, salePrice: 3499,
-    image: "/images/products/hikvision-ip.jpg", brand: "Hikvision", rating: 4.6, reviews: 256, stock: 100,
-    sku: "CCTV-HIK-IP4MP", gstRate: 18, category: "CCTV",
-    badge: "22% OFF",
-  },
-  {
-    id: "p4", name: "ASUS RT-AX88U — WiFi 6 Gaming Router",
-    slug: "asus-rt-ax88u-router", price: 18999, salePrice: 15999,
-    image: "/images/products/asus-router.jpg", brand: "ASUS", rating: 4.7, reviews: 67, stock: 20,
-    sku: "NET-ASUS-AX88U", gstRate: 18, category: "Networking",
-  },
-  {
-    id: "p5", name: "Samsung 24\" FHD Monitor — IPS, 75Hz",
-    slug: "samsung-24-inch-monitor", price: 12999, salePrice: 10999,
-    image: "/images/products/samsung-monitor.jpg", brand: "Samsung", rating: 4.4, reviews: 198, stock: 40,
-    sku: "MON-SAM-24FHD", gstRate: 18, category: "Monitors",
-    badge: "₹2,000 OFF",
-  },
-  {
-    id: "p6", name: "Zebronics Keyboard + Mouse Combo — Wired",
-    slug: "zebronics-keyboard-mouse-combo", price: 1499, salePrice: 999,
-    image: "/images/products/zebronics-km.jpg", brand: "Zebronics", rating: 4.2, reviews: 345, stock: 200,
-    sku: "ACC-ZEB-KMCOMBO", gstRate: 18, category: "Accessories",
-    badge: "Value Buy",
-  },
-]
-
-export function FeaturedProducts() {
+export function FeaturedProducts({ products }: { products: ProductListItem[] }) {
   const router = useRouter()
   const addToCart = useCartStore((s) => s.addItem)
   const { isInWishlist, toggleItem } = useWishlistStore()
@@ -110,8 +67,8 @@ export function FeaturedProducts() {
                   <div>
                     <div className="flex items-center justify-between gap-2 mb-1">
                       <span className="text-[11px] font-medium text-gray-400 uppercase tracking-wider">{product.brand}</span>
-                      {product.badge && (
-                        <Badge variant="premium" className="text-[10px] px-2 py-0">{product.badge}</Badge>
+                      {product.badges[0] && (
+                        <Badge variant="premium" className="text-[10px] px-2 py-0">{product.badges[0]}</Badge>
                       )}
                     </div>
                     <Link href={`/product/${product.slug}`}>
@@ -134,8 +91,8 @@ export function FeaturedProducts() {
                   {/* Price + Actions */}
                   <div className="flex items-center justify-between mt-2">
                     <div className="flex items-baseline gap-2">
-                      <span className="font-extrabold text-gray-900 dark:text-white">{formatPrice(product.salePrice)}</span>
-                      {product.salePrice < product.price && (
+                      <span className="font-extrabold text-gray-900 dark:text-white">{formatPrice(product.salePrice || product.price)}</span>
+                      {product.salePrice && product.salePrice < product.price && (
                         <span className="text-xs text-gray-400 line-through">{formatPrice(product.price)}</span>
                       )}
                     </div>
