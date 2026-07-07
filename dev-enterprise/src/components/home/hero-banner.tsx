@@ -3,290 +3,133 @@
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { ArrowRight, ChevronLeft, ChevronRight, Sparkles, ShieldCheck, Truck, Star } from "lucide-react"
+import { ArrowRight, Phone, Shield, Star, Truck, Wrench } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import { SITE_CONFIG } from "@/lib/constants"
 
-const slides = [
-  {
-    id: 1,
-    tag: "Premium Store",
-    title: "Your Trusted Technology Partner",
-    highlight: "Best Prices",
-    description: "Authorized dealer for Dell, HP, Lenovo, ASUS — computers, laptops, CCTV, printers & more. Wholesale & retail at unbeatable prices.",
-    cta: "Explore Products",
-    link: "/shop",
-    secondaryCta: "Get Free Quote",
-    secondaryLink: "/contact",
-    gradient: "from-amber-500 via-orange-500 to-rose-500",
-    bgGlow: "bg-amber-500/20",
-  },
-  {
-    id: 2,
-    tag: "Best Seller",
-    title: "Complete CCTV & Security Solutions",
-    highlight: "Expert Installation",
-    description: "HD IP cameras, DVR/NVR systems for home & business. Free site survey, professional installation, and 3-year warranty included.",
-    cta: "Shop CCTV",
-    link: "/shop?category=cctv",
-    secondaryCta: "Request Demo",
-    secondaryLink: "/contact",
-    gradient: "from-emerald-500 via-teal-500 to-cyan-500",
-    bgGlow: "bg-emerald-500/20",
-  },
-  {
-    id: 3,
-    tag: "Popular",
-    title: "Networking & IT Infrastructure",
-    highlight: "Enterprise Grade",
-    description: "Routers, switches, access points & structured cabling. Mesh WiFi solutions for seamless coverage across your entire space.",
-    cta: "View Networking",
-    link: "/shop?category=networking",
-    secondaryCta: "Talk to Expert",
-    secondaryLink: "/contact",
-    gradient: "from-violet-500 via-purple-500 to-fuchsia-500",
-    bgGlow: "bg-violet-500/20",
-  },
-]
-
-const stats = [
-  { value: "10+", label: "Years Experience", icon: Star },
-  { value: "5000+", label: "Happy Customers", icon: Sparkles },
-  { value: "50+", label: "Top Brands", icon: ShieldCheck },
-  { value: "Pan India", label: "Free Delivery", icon: Truck },
+const highlights = [
+  { icon: Truck, text: "Free delivery above ₹5,000" },
+  { icon: Shield, text: "Authorized dealer — 50+ brands" },
+  { icon: Wrench, text: "Installation & support included" },
 ]
 
 export function HeroBanner() {
   const [current, setCurrent] = useState(0)
-  const [direction, setDirection] = useState(0)
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const phrases = ["Best Price.", "Original Products.", "Expert Support."]
 
   useEffect(() => {
-    const handleMouse = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY })
-    }
-    window.addEventListener("mousemove", handleMouse)
-    return () => window.removeEventListener("mousemove", handleMouse)
-  }, [])
-
-  const goTo = useCallback(
-    (index: number) => {
-      setDirection(index > current ? 1 : -1)
-      setCurrent(index)
-    },
-    [current]
-  )
-
-  const next = useCallback(() => {
-    setDirection(1)
-    setCurrent((prev) => (prev + 1) % slides.length)
-  }, [])
-
-  const prev = useCallback(() => {
-    setDirection(-1)
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length)
-  }, [])
-
-  useEffect(() => {
-    const timer = setInterval(next, 5000)
-    return () => clearInterval(timer)
-  }, [next])
-
-  const slideVariants = {
-    enter: (dir: number) => ({ x: dir > 0 ? 200 : -200, opacity: 0, scale: 0.95 }),
-    center: { x: 0, opacity: 1, scale: 1 },
-    exit: (dir: number) => ({ x: dir < 0 ? 200 : -200, opacity: 0, scale: 0.95 }),
-  }
+    const t = setInterval(() => setCurrent((p) => (p + 1) % phrases.length), 2500)
+    return () => clearInterval(t)
+  }, [phrases.length])
 
   return (
-    <section className="relative min-h-[500px] lg:min-h-[600px] flex items-center overflow-hidden bg-white dark:bg-gray-950">
-      {/* Animated background orbs */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div
-          className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-amber-400/10 dark:bg-amber-500/5 blur-3xl animate-float"
-          style={{ transform: `translate(${mousePos.x * 0.01}px, ${mousePos.y * 0.01}px)` }}
-        />
-        <div
-          className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-orange-400/10 dark:bg-orange-500/5 blur-3xl"
-          style={{ transform: `translate(${-mousePos.x * 0.008}px, ${-mousePos.y * 0.008}px)`, animationDelay: "2s" }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full bg-rose-300/10 dark:bg-rose-500/5 blur-3xl"
-          style={{ transform: `translate(calc(-50% + ${mousePos.x * 0.005}px), calc(-50% + ${mousePos.y * 0.005}px))`, animationDelay: "4s" }}
-        />
-      </div>
+    <section className="relative overflow-hidden bg-white dark:bg-gray-950">
+      {/* Subtle top accent line */}
+      <div className="h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500" />
 
-      {/* Dot pattern overlay */}
-      <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.05] pointer-events-none"
-        style={{
-          backgroundImage: "radial-gradient(circle, currentColor 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }}
-      />
+      <div className="container mx-auto px-4 py-16 lg:py-24">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center">
+          {/* Left — Text */}
+          <div className="max-w-2xl">
+            {/* Small label */}
+            <div className="inline-flex items-center gap-2 text-sm font-medium text-amber-600 dark:text-amber-400 mb-6">
+              <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+              India&apos;s Trusted Tech Store
+            </div>
 
-      <div className="container mx-auto px-4 py-12 lg:py-16 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Text Content */}
-          <div className="order-2 lg:order-1">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={current}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              >
-                {/* Tag Badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 dark:bg-amber-950/50 border border-amber-200 dark:border-amber-800 mb-6">
-                  <span className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-                  <span className="text-sm font-semibold text-amber-700 dark:text-amber-300 uppercase tracking-wider">
-                    {slides[current].tag}
-                  </span>
+            {/* Main heading */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-[1.12] tracking-tight text-gray-900 dark:text-white mb-4">
+              Computers, Laptops, CCTV —{" "}
+              <span className="relative whitespace-nowrap">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={current}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute left-0 bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent"
+                  >
+                    {phrases[current]}
+                  </motion.span>
+                </AnimatePresence>
+                <span className="invisible">{phrases[0]}</span>
+              </span>
+            </h1>
+
+            {/* Description */}
+            <p className="text-gray-500 dark:text-gray-400 text-base lg:text-lg leading-relaxed mb-8 max-w-lg">
+              Authorized partner for <strong>Dell, HP, Lenovo, ASUS, Canon, Hikvision</strong> &amp; more.
+              Whether you need one laptop or a complete office network — we deliver genuine products at
+              prices that make sense.
+            </p>
+
+            {/* CTA Row */}
+            <div className="flex flex-wrap items-center gap-3 mb-10">
+              <Link href="/shop">
+                <Button size="lg" className="rounded-xl text-sm px-6 h-12 bg-gray-900 dark:bg-white dark:text-gray-900 text-white hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors group">
+                  Browse Products
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <a href={`tel:${SITE_CONFIG.phone}`}>
+                <Button variant="outline" size="lg" className="rounded-xl text-sm px-6 h-12">
+                  <Phone className="h-4 w-4 mr-2" />
+                  Call For Price
+                </Button>
+              </a>
+            </div>
+
+            {/* Trust highlights */}
+            <div className="flex flex-wrap gap-x-8 gap-y-3">
+              {highlights.map((h) => (
+                <div key={h.text} className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                  <h.icon className="h-4 w-4 text-amber-500 shrink-0" />
+                  {h.text}
                 </div>
-
-                {/* Main Heading */}
-                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.1] tracking-tight mb-5">
-                  {slides[current].title}{" "}
-                  <span className={`bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`}>
-                    {slides[current].highlight}
-                  </span>
-                </h1>
-
-                {/* Description */}
-                <p className="text-gray-600 dark:text-gray-300 text-base lg:text-lg leading-relaxed mb-7 max-w-lg">
-                  {slides[current].description}
-                </p>
-
-                {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4">
-                  <Link href={slides[current].link}>
-                    <Button
-                      size="lg"
-                      className={`rounded-2xl text-sm px-6 h-12 bg-gradient-to-r ${slides[current].gradient} text-white shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 border-0 group`}
-                    >
-                      {slides[current].cta}
-                      <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                  <Link href={slides[current].secondaryLink}>
-                    <Button
-                      variant="outline"
-                      size="lg"
-                      className="rounded-2xl text-sm px-6 h-12 border-2 hover:scale-105 transition-all duration-300"
-                    >
-                      {slides[current].secondaryCta}
-                    </Button>
-                  </Link>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-
-            {/* Slide Controls */}
-            <div className="flex items-center gap-4 mt-10">
-              <button
-                onClick={prev}
-                className="h-12 w-12 rounded-2xl border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-amber-400 dark:hover:border-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30 transition-all duration-300 group"
-              >
-                <ChevronLeft className="h-5 w-5 group-hover:text-amber-600 transition-colors" />
-              </button>
-              <div className="flex gap-2">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goTo(i)}
-                    className={`h-2.5 rounded-full transition-all duration-500 ${
-                      i === current
-                        ? "w-10 bg-gradient-to-r from-amber-500 to-orange-500"
-                        : "w-2.5 bg-gray-300 dark:bg-gray-600 hover:bg-gray-400"
-                    }`}
-                  />
-                ))}
-              </div>
-              <button
-                onClick={next}
-                className="h-12 w-12 rounded-2xl border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center hover:border-amber-400 dark:hover:border-amber-500 hover:bg-amber-50 dark:hover:bg-amber-950/30 transition-all duration-300 group"
-              >
-                <ChevronRight className="h-5 w-5 group-hover:text-amber-600 transition-colors" />
-              </button>
+              ))}
             </div>
           </div>
 
-          {/* Visual Side */}
-          <div className="order-1 lg:order-2 flex justify-center lg:justify-end">
-            <AnimatePresence mode="wait" custom={direction}>
-              <motion.div
-                key={current}
-                custom={direction}
-                variants={slideVariants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="relative"
-              >
-                {/* Main visual circle */}
-                <div className={`relative w-64 h-64 sm:w-72 sm:h-72 lg:w-[380px] lg:h-[380px] rounded-[36px] bg-gradient-to-br ${slides[current].gradient} p-[3px] shadow-2xl`}>
-                  <div className="w-full h-full rounded-[33px] bg-white dark:bg-gray-950 flex items-center justify-center overflow-hidden">
-                    <div className={`w-48 h-48 sm:w-56 sm:h-56 lg:w-64 lg:h-64 rounded-full ${slides[current].bgGlow} flex items-center justify-center animate-float`}>
-                      <div className="text-center">
-                        <Sparkles className={`h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20 mx-auto bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`} />
-                        <p className={`mt-3 text-base font-bold bg-gradient-to-r ${slides[current].gradient} bg-clip-text text-transparent`}>
-                          {slides[current].tag}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+          {/* Right — Visual Card */}
+          <div className="hidden lg:block">
+            <div className="relative w-80">
+              {/* Main card */}
+              <div className="relative rounded-3xl bg-gradient-to-br from-gray-900 to-gray-800 p-8 text-white shadow-2xl">
+                <div className="flex items-center gap-1 mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                  ))}
+                  <span className="text-sm text-gray-400 ml-1">4.8 rating</span>
                 </div>
 
-                {/* Floating badge */}
-                <motion.div
-                  animate={{ y: [0, -12, 0] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="absolute -top-4 -right-4 sm:-top-6 sm:-right-6 px-4 py-2 bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
-                      ))}
+                <div className="space-y-4">
+                  {[
+                    { label: "Products Sold", value: "15,000+" },
+                    { label: "Happy Customers", value: "5,000+" },
+                    { label: "Years in Business", value: "10+" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="flex items-end justify-between border-b border-gray-700 pb-3 last:border-0">
+                      <span className="text-sm text-gray-400">{stat.label}</span>
+                      <span className="text-xl font-bold">{stat.value}</span>
                     </div>
-                    <span className="text-sm font-bold">4.8</span>
-                  </div>
-                </motion.div>
+                  ))}
+                </div>
 
-                {/* Floating trust badge */}
-                <motion.div
-                  animate={{ y: [0, 10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                  className="absolute -bottom-2 -left-4 sm:-bottom-4 sm:-left-8 px-4 py-2 bg-white dark:bg-gray-900 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 flex items-center gap-2"
-                >
-                  <ShieldCheck className="h-5 w-5 text-green-500" />
-                  <span className="text-sm font-semibold">100% Genuine</span>
-                </motion.div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-
-        {/* Stats Row */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 lg:mt-20">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 + i * 0.1, duration: 0.6 }}
-              className="text-center p-6 rounded-3xl bg-gray-50 dark:bg-gray-900/50 border border-gray-100 dark:border-gray-800 hover:border-amber-200 dark:hover:border-amber-800 hover:shadow-lg transition-all duration-300 group"
-            >
-              <stat.icon className="h-7 w-7 mx-auto mb-3 text-amber-500 group-hover:scale-110 transition-transform duration-300" />
-              <div className="text-xl lg:text-2xl font-extrabold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                {stat.value}
+                <div className="mt-6 pt-4 border-t border-gray-700">
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    &ldquo;Best prices on genuine IT products. These guys know their stuff.&rdquo;
+                  </p>
+                  <p className="text-sm font-semibold mt-2">— Rajesh, Mumbai</p>
+                </div>
               </div>
-              <div className="text-sm text-gray-500 dark:text-gray-400 mt-1 font-medium">{stat.label}</div>
-            </motion.div>
-          ))}
+
+              {/* Floating element */}
+              <div className="absolute -top-6 -right-6 h-16 w-16 rounded-2xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-xl rotate-6">
+                <Shield className="h-7 w-7 text-white" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
